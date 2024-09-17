@@ -43,6 +43,7 @@ async onLogin(){
    sessionStorage.setItem("access_token","");
    try{
      let loginResponse = await firstValueFrom( this.loginService.postLogin$(this.login));
+     console.log("loginResponse=" + JSON.stringify(loginResponse));
      this.message=loginResponse.message;
      this.status = loginResponse.status;  
      sessionStorage.setItem("access_token",loginResponse.token);

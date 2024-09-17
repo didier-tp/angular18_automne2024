@@ -1,0 +1,36 @@
+<h3>reservation</h3>
+<form novalidate [formGroup]="resaForm">
+    <div class="form-group row">
+        <label class="col-sm-3">firstName:</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" formControlName="firstName">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-3">lastName:</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" formControlName="lastName">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-3">telephone:</label>
+        <div class="col-sm-9">
+            <input type="telephone" class="form-control" formControlName="telephone">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-3">email:</label>
+        <div class="col-sm-9">
+            <input type="email" class="form-control" formControlName="email">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-3">dateTime:</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" formControlName="dateTime">
+        </div>
+    </div>
+    <input type="button" value="reservation" (click)="onReservation()" [disabled]="!resaForm.valid"/>
+    <hr />
+    {{message}}
+</form>

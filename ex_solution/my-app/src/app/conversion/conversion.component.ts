@@ -20,7 +20,8 @@ export class ConversionComponent {
   montantConverti: number = 0;
   message = "";
 
-  codeToDelete="?";
+  codeToUpdate="?";
+  changeToUpdate=1;
 
   listeDevises: Devise[] = []; //à choisir dans liste déroulante.
 
@@ -58,10 +59,22 @@ export class ConversionComponent {
     }
   }
 
-  async onDelete() {
+  async onUpdate() {
     try {
-        await firstValueFrom(this._deviseService.deleteDevise$(this.codeToDelete));
-        this.message="suppression ok";
+      let d:Devise;
+      let deviseTemp : Devise|undefined;
+        for(d of this.listeDevises){
+          if(d.code==this.codeToUpdate){
+            deviseTemp = JSON.parse(JSON.stringify(d));
+          }
+        }
+        if(deviseTemp==null)
+          this.message="pas de devise pour ce code";
+        else{
+          deviseTemp.change=this.changeToUpdate;
+          await firstValueFrom(this._deviseService.putDevise$(deviseTemp));
+          this.message="mise à jour ok";
+        }
     } catch (err) {
       console.log(err);
       this.message = <string> JSON.stringify(err);

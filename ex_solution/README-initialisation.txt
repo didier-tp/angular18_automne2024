@@ -16,17 +16,7 @@ de
 ===============================
 acceptation localStorage avec angular 17+
 -------------------------------------
-NB: avec angular 17+, pour ne pas être embêté avec localStorage 
-il faut si besoin ajouter 
-"ssr": false,  "prerender": false 
-dans angular.json près des lignes 72,73
-  "development": {
-              "optimization": false,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "ssr": false, 
-              "prerender": false 
-            }
+encadrer cela via if (isPlatformBrowser(this.platform)) { …}
 
 ==============================
 intégration de l'extension material (pour onglets)

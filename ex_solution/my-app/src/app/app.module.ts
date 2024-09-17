@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 //import {  HttpClientModule } from '@angular/common/http'; //OK angular17 , deprecated angular18 , 
 //declare provideHttpClient() in providers: [ ] instead since angular 18
@@ -28,6 +28,8 @@ import { MyAuthInterceptor } from './common/interceptor/my-auth.interceptor';
 import { OAuth2LogInOutComponent } from './oauth2-log-in-out/oauth2-log-in-out.component';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { DeviseComponent } from './devise/devise.component';
+import { BorderOverDirective } from './common/directive/border-over.directive';
+import { ReservationComponent } from './reservation/reservation.component';
 
 
 @NgModule({
@@ -49,12 +51,15 @@ import { DeviseComponent } from './devise/devise.component';
     TogglePanelComponent,
     LoginComponent,
     OAuth2LogInOutComponent,
-    DeviseComponent
+    DeviseComponent,
+    BorderOverDirective,
+    ReservationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     MatTabsModule,
     OAuthModule.forRoot()
   ],

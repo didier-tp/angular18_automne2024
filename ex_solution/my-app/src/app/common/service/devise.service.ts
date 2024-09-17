@@ -4,12 +4,13 @@ import { Observable, of } from 'rxjs';
 import { delay, map} from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
-class ConvertRes {
-    constructor(public amount:number=0,
-                public source:string="",
-                public target:string="",
-                public result:number=0){}
-}
+
+export interface ConvertRes {
+  source :string; //ex: "EUR",
+  target :string; //ex: "USD",
+  amount :number; //ex: 200.0
+  result :number; //ex: 217.3913
+};
 
 
 @Injectable({
@@ -78,13 +79,15 @@ export class DeviseService {
   public convertir$(montant: number,
                    codeDeviseSrc : string, 
                    codeDeviseTarget : string
-                   ) : Observable<number> {
+                   ) : Observable<number> {                    
     let url = this.publicBaseUrl 
     + `/convert?source=${codeDeviseSrc}&target=${codeDeviseTarget}&amount=${montant}`;
     console.log("url="+url);
+  
     return this.http.get<ConvertRes>(url).pipe(
       map((convertRes) => convertRes.result)
     );
+    
   }
 
 }

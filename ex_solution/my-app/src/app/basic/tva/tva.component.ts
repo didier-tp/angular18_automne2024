@@ -13,10 +13,24 @@ export class TvaComponent {
   tva=0;
   ttc=0;
 
-  listePays=['France','Allemagne','Espagne','Finlande','Italie'];
+  
 
   onCalculerTvaTtc(){
     this.tva=this.taux/100 * this.ht;
     this.ttc = this.tva + this.ht;
+  }
+
+  mapTauxCategorieProd= new Map<number,string[]>();
+  tauxSel : number | undefined = undefined; //taux sélectionné
+  listeCategoriePourTauxSel : string[] = [];
+  constructor(){
+    this.mapTauxCategorieProd.set(20 , [ "services" ,"outils" , "objets"]);
+    this.mapTauxCategorieProd.set(10 , [ "transports" ,"hotels" , "restaurants" , "spectacles" , "médicaments"]);
+    this.mapTauxCategorieProd.set(5 , [ "aliments" ,"énergies" , "livres" ]);
+  }
+
+  onSelectTaux(t:number){
+    this.tauxSel=t;
+    this.listeCategoriePourTauxSel=this.mapTauxCategorieProd.get(t)??[];
   }
 }
