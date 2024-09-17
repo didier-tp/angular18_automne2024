@@ -14,6 +14,10 @@ futures actualisations:
 cd c:\references\angular18_automne2024
 git pull
 ---------
+Compléments sur angular 17+ et javascript, typescript
+---> référentiel git "https://github.com/didier-mycontrib/angular17plus"
+     avec rappels-essenetiel-es2027 , rappels-typescript , ….
+-----------
 
 Exemple d'application angular avec plusieurs modules et lazy-loading:
 variante tp-angular/j5/my-app du référentiel https://github.com/didier-tp/isika-al-frontend-tp
