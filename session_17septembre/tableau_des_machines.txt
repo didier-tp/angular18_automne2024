@@ -1,0 +1,26 @@
+==========================================
+
+-          Windows : https://tp.orsysformation.fr/rd-win.exe
+
+-          Linux : https://tp.orsysformation.fr/rd-lin.tar
+
+-          macOS : https://tp.orsysformation.fr/rd-mac.zip
+============================
+
+mot de passe = Orsys-agucv4
+
+===================================================
+Didier Defrance  / 1140042691
+Pascal Simony / 1251512830
+Bastien Begenne /1193239649
+Diego Cabra / 1250471071
+Nicolas Guerard / 1845077231
+Jonathan Sardo Viscuglia /1740507183
+Nathan Stiz / 1405058378
+Nicolas Verel / 1170792380
+
+===========================
+https://github.com/didier-tp/angular18_automne2024 (angular)
+et 
+https://github.com/didier-mycontrib/angular17plus (js , typescript, …)
+
