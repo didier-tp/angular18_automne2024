@@ -12,6 +12,8 @@ mot de passe = Orsys-agucv4
 =========================
  https://tp.orsysformation.fr
   p_simony@orsysformation.fr , any-agucv4
+  puis sur partie Rust : id=1251512830 , mot de passe = Orsys-agucv4 , puis orsys/orsys
+   
 
 ===================================================
 Didier Defrance  / 1140042691
