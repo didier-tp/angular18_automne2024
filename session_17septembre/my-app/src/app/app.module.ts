@@ -14,6 +14,8 @@ import { LOCALE_ID} from '@angular/core';
 import localeFr from '@angular/common/locales/fr';
 import { registerLocaleData } from '@angular/common';
 import { MynumberPipe } from './common/pipe/mynumber.pipe';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { LoginComponent } from './login/login.component';
 registerLocaleData(localeFr);
 
 
@@ -25,7 +27,9 @@ registerLocaleData(localeFr);
     BasicComponent,
     CalculatriceComponent,
     TvaComponent,
-    MynumberPipe
+    MynumberPipe,
+    WelcomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
