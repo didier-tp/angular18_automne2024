@@ -16,6 +16,7 @@ import { registerLocaleData } from '@angular/common';
 import { MynumberPipe } from './common/pipe/mynumber.pipe';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
+import { ReservationComponent } from './reservation/reservation.component';
 registerLocaleData(localeFr);
 
 
@@ -29,7 +30,8 @@ registerLocaleData(localeFr);
     TvaComponent,
     MynumberPipe,
     WelcomeComponent,
-    LoginComponent
+    LoginComponent,
+    ReservationComponent
   ],
   imports: [
     BrowserModule,
