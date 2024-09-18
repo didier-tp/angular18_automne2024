@@ -1,6 +1,7 @@
 <div class="container-fluid">
-    <app-header></app-header>
-    <p>welcome to {{title}}</p>
+ 
+   <!-- <app-header titre="monAppli"></app-header> -->  <!-- avec valeur fixe -->
+    <app-header [titre]="title"></app-header> <!-- avec valeur variable (copie dynamique de title) -->
 
     <!-- router-outlet sera automatiquement remplacé par le composant
         associé à la route courante (WelcomeComponent par défaut)-->
