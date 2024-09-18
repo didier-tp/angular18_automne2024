@@ -19,4 +19,20 @@ export class TvaComponent {
     this.ttc = this.tva + this.ht;
   }
 
+//pour suite faculative du tp:
+
+  mapTauxCategorieProd= new Map<number,string[]>();
+  tauxSel : number | undefined = undefined; //taux sélectionné
+  listeCategoriePourTauxSel : string[] = [];
+  constructor(){
+    this.mapTauxCategorieProd.set(20 , [ "services" ,"outils" , "objets"]);
+    this.mapTauxCategorieProd.set(10 , [ "transports" ,"hotels" , "restaurants" , "spectacles" , "médicaments"]);
+    this.mapTauxCategorieProd.set(5 , [ "aliments" ,"énergies" , "livres" ]);
+  }
+
+  onSelectTaux(t:number){
+    this.tauxSel=t;
+    this.listeCategoriePourTauxSel=this.mapTauxCategorieProd.get(t)??[];
+  }
+
 }

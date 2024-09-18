@@ -15,3 +15,17 @@ tva=<span class="enEvidence">{{tva}}</span><br/>
 ttc=<span class="enEvidence">{{ttc}}</span><br/>
 </div> 
 <hr/>
+<div class="myFlexRow">
+    <div class="myFlexCell">
+       <h6>principaux taux de tva:</h6>
+       <ul>
+          <li *ngFor="let t of listeTaux" 
+              (click)="onSelectTaux(t)"
+              [class.enEvidence]="t === tauxSel">{{t}}%</li>
+       </ul>
+    </div>
+    <div class="myFlexCell">
+     <h6>principales catégories pour le taux sélectionné:</h6>
+     <p class="enEvidence">{{listeCategoriePourTauxSel}}</p>
+    </div>
+ </div>
