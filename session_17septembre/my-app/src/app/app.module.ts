@@ -10,6 +10,12 @@ import { CalculatriceComponent } from './basic/calculatrice/calculatrice.compone
 import { TvaComponent } from './basic/tva/tva.component';
 import { FormsModule } from '@angular/forms';
 
+import { LOCALE_ID} from '@angular/core';
+import localeFr from '@angular/common/locales/fr';
+import { registerLocaleData } from '@angular/common';
+import { MynumberPipe } from './common/pipe/mynumber.pipe';
+registerLocaleData(localeFr);
+
 
 @NgModule({
   declarations: [
@@ -18,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     BasicComponent,
     CalculatriceComponent,
-    TvaComponent
+    TvaComponent,
+    MynumberPipe
   ],
   imports: [
     BrowserModule,
@@ -26,6 +33,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   providers: [
+   { provide:LOCALE_ID, useValue: 'fr-FR'},
     provideClientHydration()
   ],
   bootstrap: [AppComponent]
