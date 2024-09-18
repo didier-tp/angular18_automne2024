@@ -9,16 +9,21 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class ReservationComponent implements OnInit {
 
   myForm!: FormGroup;
+  message="";
 
   constructor(private _formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.myForm = this._formBuilder.group({
-      firstname: ['',[ Validators.required , Validators.minLength(2)]],
-      lastname: ['', Validators.required],
+      firstName: ['',[ Validators.required , Validators.minLength(2)]],
+      lastName: ['', Validators.required],
       telephone: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       dateEtHeure: ['', [Validators.required]]
     });
+  }
+
+  onReservation(){
+    this.message="donnees saisies=" + JSON.stringify(this.myForm.value);
   }
 }

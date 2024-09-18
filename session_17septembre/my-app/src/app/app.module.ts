@@ -8,7 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { BasicComponent } from './basic/basic.component';
 import { CalculatriceComponent } from './basic/calculatrice/calculatrice.component';
 import { TvaComponent } from './basic/tva/tva.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { LOCALE_ID} from '@angular/core';
 import localeFr from '@angular/common/locales/fr';
@@ -36,7 +36,8 @@ registerLocaleData(localeFr);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
    { provide:LOCALE_ID, useValue: 'fr-FR'},

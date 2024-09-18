@@ -1,1 +1,25 @@
-<p>reservation works!</p>
+<form novalidate [formGroup]="myForm">
+    <div class="form-group">
+        <label>firstName:</label>
+        <input type="text" class="form-control" formControlName="firstName" />
+    </div>
+    <div class="form-group">
+        <label>lastName:</label>
+        <input type="text" class="form-control" formControlName="lastName" />
+    </div>
+    <div class="form-group">
+        <label>telephone:</label>
+        <input type="text" class="form-control" formControlName="telephone" />
+    </div>
+    <div class="form-group">
+        <label>email:</label>
+        <input type="text" class="form-control" formControlName="email" />
+    </div>
+    <div class="form-group">
+        <label>dateEtHeure:</label>
+        <input type="text" class="form-control" formControlName="dateEtHeure" />
+    </div>
+    <button [disabled]="!myForm.valid" (click)="onReservation()" >reservation</button>
+    <hr/>
+    {{message}}
+</form>
