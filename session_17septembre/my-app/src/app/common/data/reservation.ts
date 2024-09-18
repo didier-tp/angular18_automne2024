@@ -4,5 +4,5 @@ export class Reservation {
     public lastName : string ="",
     public telephone : string ="",
     public email : string ="" ,
-    public dateEtHeure : Date){}
+    public dateEtHeure : Date = new Date()){}
     }
