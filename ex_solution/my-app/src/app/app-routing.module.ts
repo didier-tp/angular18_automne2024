@@ -23,10 +23,10 @@ const routes: Routes = [
       ]
   },
   { path: "ngr-login" , component : LoginComponent},
-  { path: "ngr-reservation" , component : ReservationComponent},
-  { path: "ngr-devise" , component : DeviseComponent},
   { path: "ngr-oauth2-login-out" , component : OAuth2LogInOutComponent},
+  { path: "ngr-devise" , component : DeviseComponent},
   { path: "ngr-conversion" , component : ConversionComponent , canActivate:[authGardGuard]},
+  { path: "ngr-reservation" , component : ReservationComponent},
   { path: "ngr-demo" , component : DemoComponent},
 ]; 
 

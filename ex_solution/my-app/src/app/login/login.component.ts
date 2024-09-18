@@ -5,6 +5,8 @@ import { firstValueFrom } from 'rxjs';
 import { Login, LoginResponse } from '../common/data/login';
 import { LoginService } from '../common/service/login.service';
 import { messageFromError } from '../common/util/util';
+import { SessionService } from '../common/service/session.service';
+import { UserInSession } from '../common/data/user_in_session';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +19,9 @@ login = new Login("user1","pwd1","user");
 message = "";
 status = false;
 
-constructor(private loginService: LoginService,private router : Router){
+constructor(private loginService: LoginService,
+  private _sessionService :SessionService,
+  private router : Router){
    //injection de dépendance
 }
 
@@ -47,6 +51,12 @@ async onLogin(){
      this.message=loginResponse.message;
      this.status = loginResponse.status;  
      sessionStorage.setItem("access_token",loginResponse.token);
+     if(loginResponse.status==true){
+          this._sessionService.userInSession$ = new UserInSession(loginResponse.username,true,"?",[]);
+     }
+     else{
+      this._sessionService.userInSession$ = new UserInSession("?",false,"?",[]);
+     }
      //NB: "access_token" plutot que "token" or "authToken" for angular-oauth2-oidc extension compatibility
      //this.router.navigate([ '/ngr-conversion']); //navigation possible par programmation
    }

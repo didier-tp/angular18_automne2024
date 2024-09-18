@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { PreferencesService } from '../common/service/preferences.service';
+import { SessionService } from '../common/service/session.service';
 
 @Component({
   selector: 'app-header',
@@ -7,12 +8,17 @@ import { PreferencesService } from '../common/service/preferences.service';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit , OnChanges{
+  isConnected /*: boolean*/ =false;
 
   @Input()
   titre = "titreParDefaut";
 
-  constructor(public preferencesService : PreferencesService)  {
-     console.log("dans constructeur de HeaderComponent , titre=" + this.titre)
+  constructor(public preferencesService : PreferencesService,
+                     private _sessionService : SessionService  )  {
+     console.log("dans constructeur de HeaderComponent , titre=" + this.titre);
+     _sessionService.userInSession$.subscribe((userInSession)=>{
+         this.isConnected = userInSession.authenticated;
+       });
      }
 
   ngOnChanges(changes: SimpleChanges): void {
