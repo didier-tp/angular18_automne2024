@@ -57,6 +57,13 @@ et ajouter "src/silent-refresh.html" dans le premier bloc assets de angular.json
 * add OAuthModule.forRoot() in imports[] of app.module.ts with import { OAuthModule } from 'angular-oauth2-oidc'; 
 + code de Oauth2LogInOutComponent , service/OAuth2SessionService , data/UserInSession 
 et tenir compte du fait que le token s'appelle "access_token" (et pas token si authToken) dans intercepteur et/ou gardien
+
+============================
+
+npm install --save-dev cypress
+npx cypress open
+ou bien
+npx cypress run --spec "cypress/e2e/myTest.spec.cy.js" --browser firefox >test_report.txt
            
 
  

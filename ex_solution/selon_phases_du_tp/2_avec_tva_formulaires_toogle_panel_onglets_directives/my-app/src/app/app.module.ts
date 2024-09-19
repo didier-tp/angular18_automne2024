@@ -20,9 +20,6 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { TogglePanelComponent } from './common/component/toggle-panel/toggle-panel.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatTabsModule} from '@angular/material/tabs';
-import { ConversionComponent } from './conversion/conversion.component';
-import { provideHttpClient } from '@angular/common/http';
-import { DeviseComponent } from './devise/devise.component';
 registerLocaleData(localeFr);
 
 
@@ -38,9 +35,7 @@ registerLocaleData(localeFr);
     WelcomeComponent,
     LoginComponent,
     ReservationComponent,
-    TogglePanelComponent,
-    ConversionComponent,
-    DeviseComponent
+    TogglePanelComponent
   ],
   imports: [
     BrowserModule,
@@ -52,8 +47,7 @@ registerLocaleData(localeFr);
   providers: [
    { provide:LOCALE_ID, useValue: 'fr-FR'},
     provideClientHydration(),
-    provideAnimationsAsync(),
-    provideHttpClient()
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
