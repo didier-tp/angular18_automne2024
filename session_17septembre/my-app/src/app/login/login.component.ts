@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
   manageLoginResponse(resp: LoginResponse){
        this.message=resp.message;
        this.ok=resp.status;
+       console.log("loginResponse="+JSON.stringify(resp));
   }
 
   constructor(private _loginService : LoginService) {
