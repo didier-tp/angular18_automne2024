@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DeviseService } from '../common/service/devise.service'
 import { Devise } from '../common/data/devise'
+import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-conversion',
   templateUrl: './conversion.component.html',
@@ -41,6 +42,9 @@ export class ConversionComponent implements OnInit {
   //et après la prise en compte des injections et des éventuels @Input
   ngOnInit(): void {
     this._deviseService.getAllDevises$()
+      .pipe(
+        map( (tabDev)=> tabDev.sort( (d1,d2)=> d1.code.localeCompare(d2.code)  ) )
+      )
       .subscribe({
         next: (tabDev: Devise[]) => { this.initListeDevises(tabDev); },
         error: (err) => { console.log("error:" + err) }
