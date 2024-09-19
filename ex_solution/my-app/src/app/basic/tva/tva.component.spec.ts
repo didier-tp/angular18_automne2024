@@ -3,15 +3,31 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TvaComponent } from './tva.component';
 import { FormsModule } from '@angular/forms';
 import { MynumberPipe } from '../../common/pipe/mynumber.pipe';
+import { CalculService } from '../../common/service/calcul.service';
 
 describe('TvaComponent', () => {
   let component: TvaComponent;
   let fixture: ComponentFixture<TvaComponent>;
 
   beforeEach(async () => {
+
+    //stub for calculService
+    let calculServiceStub = {
+      calculTva(ht : number, tauxTvaPct : number ) : number{
+         return ht * tauxTvaPct / 100;
+        } ,
+
+        addition(a:number,b:number){
+          return Number(a)+Number(b);
+        }
+
+      };
+
     await TestBed.configureTestingModule({
       declarations: [TvaComponent , MynumberPipe],
-      imports:[FormsModule]
+      imports:[FormsModule],
+      providers : [{provide : CalculService,
+        useValue : calculServiceStub }]
     })
     .compileComponents();
 
@@ -32,7 +48,7 @@ describe('TvaComponent', () => {
     const compNativeElt = fixture.debugElement.nativeElement;
     let spanTva = compNativeElt.querySelector('#spanTva');
     console.log("from model, tva:" + spanTva.innerText);
-    expect(spanTva.innerText).toContain('40');
+    expect(Number(spanTva.innerText)).toBe(40);
     });
 
     it('tva(200,10)=20 from ihm', () => {
@@ -60,7 +76,7 @@ describe('TvaComponent', () => {
    
       let spanTva = compNativeElt.querySelector('#spanTva');
       console.log("from ihm, tva:" + spanTva.innerText);
-      expect(spanTva.innerText).toContain('20');
+      expect(Number(spanTva.innerText)).toBe(20);
      
      
       });
