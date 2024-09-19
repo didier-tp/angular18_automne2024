@@ -13,7 +13,14 @@ export interface ConvertRes {
   providedIn: 'root'
 })
 export class DeviseService {
-  private _apiBaseUrl = "https://www.d-defrance.fr/tp/devise-api";
+
+  
+   //private _apiBaseUrl ="https://www.d-defrance.fr/tp/devise-api";
+private _apiBaseUrl ="tp/devise-api";
+// with prefix in proxy.conf.json
+// (ng serve --proxy-config proxy.conf.json)
+// or other config in production mode
+
   constructor(private _http: HttpClient) { }
   public getAllDevises$(): Observable<Devise[]> {
     let url = this._apiBaseUrl + "/public/devise";
