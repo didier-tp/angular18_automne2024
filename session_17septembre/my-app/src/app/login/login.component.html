@@ -1,4 +1,5 @@
 <h3>login</h3>
+<p>pour TP: admin1/pwd1/admin</p>
 <form #formLogin="ngForm">
     <div class="form-group row">
         <label class="col-sm-4">username:</label>
@@ -25,4 +26,4 @@
         </div>
     </div>
 </form>
-message: {{message}}
+message: <span [style.color]="ok?'green':'red'">{{message}}</span>
