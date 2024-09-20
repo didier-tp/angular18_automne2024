@@ -27,6 +27,10 @@ export class LoginComponent implements OnInit {
   manageLoginResponse(resp: LoginResponse){
        this.message=resp.message;
        this.ok=resp.status;
+
+       //mémoriser le jeton d'authentification
+       sessionStorage.setItem("access_token",resp.token??"");
+
        console.log("loginResponse="+JSON.stringify(resp));
   }
 
