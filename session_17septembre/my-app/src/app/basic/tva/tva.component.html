@@ -1,11 +1,11 @@
 <p>calcul tva</p>
 <label>ht:</label> <!-- <input type="number" [(ngModel)]="ht" /> -->
-                   <input type="number" name="ht" (input)="onCalculerTvaTtc()" [(ngModel)]="ht" /> <br/>
+                   <input type="number" name="ht" (input)="onCalculerTvaTtc()"  [(ngModel)]="ht"/> <br/>
 
 <label>tauxTva(%):</label> 
   <!-- <input [(ngModel)]="taux" /> -->
   
-   <select [(ngModel)]="taux"  name="taux" (change)="onCalculerTvaTtc()">
+   <select [(ngModel)]="taux"  name="taux" (change)="onCalculerTvaTtc()" >
       <option [ngValue]="t" *ngFor="let t of listeTaux">{{(t / 100) | percent}}</option>
     </select> 
     <br/>

@@ -15,7 +15,7 @@ export class TvaComponent {
 
   
   onCalculerTvaTtc(){
-    this.tva=this.taux/100 * this.ht;
+    this.tva=this.taux/100 * this.ht ;
     this.ttc = this.tva + this.ht;
   }
 
