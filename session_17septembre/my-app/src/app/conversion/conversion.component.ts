@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DeviseService } from '../common/service/devise.service'
 import { Devise } from '../common/data/devise'
 import { map } from 'rxjs/operators';
+import { firstValueFrom } from 'rxjs';
+
 @Component({
   selector: 'app-conversion',
   templateUrl: './conversion.component.html',
@@ -14,7 +16,8 @@ export class ConversionComponent implements OnInit {
   montantConverti: number = 0;
   listeDevises: Devise[] = []; //à choisir dans liste déroulante.
   constructor(private _deviseService: DeviseService) { }
-  onConvertir() {
+
+  onConvertirV1() {
     console.log("debut de onConvertir")
     this._deviseService.convertir$(this.montant,
       this.codeDeviseSource,
@@ -30,6 +33,23 @@ export class ConversionComponent implements OnInit {
     //Attention : sur cette ligne , le résultat n'est à ce stade pas encore connu
     //car appel asynchrone non bloquant et réponse ultérieure via callback
   }
+
+  //V2 via async await
+  async onConvertir() {
+    console.log("debut de onConvertir");
+    try {
+      const resConv: number = await firstValueFrom(this._deviseService.convertir$(this.montant,
+        this.codeDeviseSource,
+        this.codeDeviseCible));
+
+      this.montantConverti = resConv; //pour affichage du coté .html
+      console.log("resultat obtenu en différé");
+    } catch (ex) {
+      console.log(ex);
+    }
+  }
+
+
   initListeDevises(tabDevises: Devise[]) {
     this.listeDevises = tabDevises;
     if (tabDevises && tabDevises.length > 0) {
@@ -43,11 +63,38 @@ export class ConversionComponent implements OnInit {
   ngOnInit(): void {
     this._deviseService.getAllDevises$()
       .pipe(
-        map( (tabDev)=> tabDev.sort( (d1,d2)=> d1.code.localeCompare(d2.code)  ) )
+        map((tabDev) => tabDev.sort((d1, d2) => d1.code.localeCompare(d2.code)))
       )
       .subscribe({
         next: (tabDev: Devise[]) => { this.initListeDevises(tabDev); },
         error: (err) => { console.log("error:" + err) }
       });
   }
+
+  message="";
+  codeToUpdate = "?";
+  changeToUpdate = 1;
+  async onUpdate() {
+    try {
+      let d: Devise;
+      let deviseTemp: Devise | undefined;
+      for (d of this.listeDevises) {
+        if (d.code == this.codeToUpdate) {
+          deviseTemp = JSON.parse(JSON.stringify(d));
+        }
+      }
+      if (deviseTemp == null)
+        this.message = "pas de devise pour ce code";
+      else {
+        deviseTemp.change = this.changeToUpdate;
+        await firstValueFrom(this._deviseService.putDevise$(deviseTemp));
+        this.message = "mise à jour ok";
+      }
+    } catch (err) {
+      console.log(err);
+      this.message = <string>JSON.stringify(err);
+    }
+  }
+
+
 }
