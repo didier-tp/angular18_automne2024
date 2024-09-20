@@ -37,6 +37,7 @@ export class CalculatriceComponent {
   onMouseLeave(evt: MouseEvent) {
     this.x = 0; this.y = 0;
   }
+  
   constructor(route : ActivatedRoute) {
     route.params.subscribe(
     (params: Params)=> {

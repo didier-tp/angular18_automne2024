@@ -8,6 +8,7 @@ import { ConversionComponent } from './conversion/conversion.component';
 import { DeviseComponent } from './devise/devise.component';
 import { TvaComponent } from './basic/tva/tva.component';
 import { CalculatriceComponent } from './basic/calculatrice/calculatrice.component';
+import { verifAuthGuard } from './common/guard/verif-auth.guard';
 
 const routes: Routes = [
   { path : "ngr-welcome" , component : WelcomeComponent},
@@ -19,7 +20,9 @@ const routes: Routes = [
       { path: '', redirectTo: 'tva', pathMatch: 'prefix'}
       ]
   },
-  { path: 'ngr-conversion', component: ConversionComponent } ,
+  { path: 'ngr-conversion', component: ConversionComponent ,
+     canActivate: [verifAuthGuard]
+  } ,
   { path : "ngr-reservation" , component : ReservationComponent},
   { path : "ngr-devise" , component : DeviseComponent},
   { path: '', redirectTo: '/ngr-welcome', pathMatch: 'full'}

@@ -21,11 +21,11 @@ import { TogglePanelComponent } from './common/component/toggle-panel/toggle-pan
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatTabsModule} from '@angular/material/tabs';
 import { ConversionComponent } from './conversion/conversion.component';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptors, withInterceptorsFromDi } from '@angular/common/http';
 import { DeviseComponent } from './devise/devise.component';
 registerLocaleData(localeFr);
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { MyAuthInterceptor } from './common/interceptor/my-auth.interceptor';
+import { myAuthInterceptor} from './common/interceptor/my-auth.interceptor';
 
 
 @NgModule({
@@ -55,12 +55,15 @@ import { MyAuthInterceptor } from './common/interceptor/my-auth.interceptor';
    { provide:LOCALE_ID, useValue: 'fr-FR'},
     provideClientHydration(),
     provideAnimationsAsync(),
+    /*
     {
       provide: HTTP_INTERCEPTORS,
       useClass: MyAuthInterceptor,
       multi: true
       },
     provideHttpClient( withInterceptorsFromDi() )
+    */
+    provideHttpClient( withInterceptors([myAuthInterceptor]) )
   ],
   bootstrap: [AppComponent]
 })

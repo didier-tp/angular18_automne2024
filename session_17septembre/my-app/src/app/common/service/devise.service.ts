@@ -70,17 +70,13 @@ export class DeviseService {
     //this.http.post<TypeReponseRetourneParServeur>(url_web_service , donnee_a_envoyer)
   }
 
-  putDevise$(d :Devise): Observable<Devise>{
-    const url = `${this._apiBaseUrl}/private/devise?v=true`;
-    return this.http.put<Devise>(url,d /*input envoyé au serveur*/);
-    }
-/*
+
   putDevise$(d :Devise): Observable<Devise>{
     const url = `${this.publicOrPrivateBaseUrl}/devise?v=true`; 
     return this.http.put<Devise>(url,d );
     //this.http.put<TypeReponseRetourneParServeur>(url_web_service , donnee_a_envoyer)
   }
-  */
+  
 
   public convertir$(montant: number,
                    codeDeviseSrc : string, 
