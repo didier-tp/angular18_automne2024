@@ -9,8 +9,8 @@ import { Login, LoginResponse } from '../data/login';
 })
 export class LoginService {
 
-  //baseUrl = "https://www.d-defrance.fr/tp/standalone-login-api/public";
-  baseUrl = "/tp/standalone-login-api/public"; //url incomplete possible via proxy.conf.json 
+  //baseUrl = "https://www.d-defrance.fr/tp/standalone-login-api/v1/public";
+  baseUrl = "/tp/standalone-login-api/v1/public"; //url incomplete possible via proxy.conf.json 
   // reverse proxy de ng serve
 
   constructor(private http: HttpClient){

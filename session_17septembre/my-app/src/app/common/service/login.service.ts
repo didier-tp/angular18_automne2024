@@ -9,8 +9,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginService {
 
-     //private _apiBaseUrl ="https://www.d-defrance.fr/tp/standalone-login-api";
-  private _apiBaseUrl ="tp/standalone-login-api";
+     //private _apiBaseUrl ="https://www.d-defrance.fr/tp/standalone-login-api/v1";
+  private _apiBaseUrl ="tp/standalone-login-api/v1";
 
 
   constructor(private _http: HttpClient) { }

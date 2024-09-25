@@ -30,11 +30,11 @@ export class DeviseService {
   public get  withoutSecurity():boolean{
     return this._withoutSecurity;
   }
-  //full baseUrl = "https://www.d-defrance.fr/tp/devise-api/public or private";
-  //_apiBaseUrl ="https://www.d-defrance.fr/tp/devise-api";
-  //_apiBaseUrl ="http://localhost:8233/devise-api"
+  //full baseUrl = "https://www.d-defrance.fr/tp/devise-api/v1/public or private";
+  //_apiBaseUrl ="https://www.d-defrance.fr/tp/devise-api/v1";
+  //_apiBaseUrl ="http://localhost:8233/devise-api/v1"
 
-  _apiBaseUrl ="tp/devise-api"; //with ng serve --proxy-config proxy.conf.json
+  _apiBaseUrl ="tp/devise-api/v1"; //with ng serve --proxy-config proxy.conf.json
   publicBaseUrl = `${this._apiBaseUrl}/public`;
   privateBaseUrl = `${this._apiBaseUrl}/private`;
   publicOrPrivateBaseUrl : string =this.privateBaseUrl; //with security by default
@@ -43,7 +43,7 @@ export class DeviseService {
  }
 
   public getAllDevises$() : Observable<Devise[]>{
-     const url = `${this.publicBaseUrl}/devise`;
+     const url = `${this.publicBaseUrl}/devises`;
      console.log( "url = " + url);
      return this.http.get<Devise[]>(url)
      .pipe(
@@ -52,26 +52,27 @@ export class DeviseService {
   }
 
   public getDeviseByCode$(code:string) : Observable<Devise>{
-    const url = `${this.publicBaseUrl}/devise/${code}`;
+    const url = `${this.publicBaseUrl}/devises/${code}`;
     console.log( "url = " + url);
     return this.http.get<Devise>(url);
   }
 
 
   public deleteDevise$(deviseCode : string):Observable<any>{
-    const url = `${this.publicOrPrivateBaseUrl}/devise/${deviseCode}?v=true`;
+    const url = `${this.publicOrPrivateBaseUrl}/devises/${deviseCode}?v=true`;
     console.log("deleteUrl=" + url );
     return this.http.delete<any>(url);
   }
 
   postDevise$(d :Devise): Observable<Devise>{
-    const url = `${this.publicOrPrivateBaseUrl}/devise`;
+    const url = `${this.publicOrPrivateBaseUrl}/devises`;
     return this.http.post<Devise>(url,d /*input envoyé au serveur*/);
     //this.http.post<TypeReponseRetourneParServeur>(url_web_service , donnee_a_envoyer)
   }
 
   putDevise$(d :Devise): Observable<Devise>{
-    const url = `${this.publicOrPrivateBaseUrl}/devise?v=true`; 
+    const deviseCode = d.code;
+    const url = `${this.publicOrPrivateBaseUrl}/devises/${deviseCode}?v=true`; 
     return this.http.put<Devise>(url,d /*input envoyé au serveur*/);
     //this.http.put<TypeReponseRetourneParServeur>(url_web_service , donnee_a_envoyer)
   }
