@@ -28,6 +28,7 @@ const routes: Routes = [
   { path: "ngr-conversion" , component : ConversionComponent , canActivate:[authGardGuard]},
   { path: "ngr-reservation" , component : ReservationComponent},
   { path: "ngr-demo" , component : DemoComponent},
+  { path: '**', redirectTo: '/ngr-welcome', pathMatch: 'full'},
 ]; 
 
 @NgModule({

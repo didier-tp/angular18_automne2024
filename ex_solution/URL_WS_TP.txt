@@ -1,5 +1,6 @@
 https://www.d-defrance.fr/tp/devise-api/v1/public/devises (pas securisé)  code/name/change
 https://www.d-defrance.fr/tp/devise-api/v1/private/devises (securisé)
+https://www.d-defrance.fr/tp/tp-api-html pour éventuellement explorer
 
 https://www.d-defrance.fr/tp/standalone-login-api/v1/public/auth  username/password , username,status,message,token,scope
 (ex: https://github.com/didier-mycontrib/tp-app)

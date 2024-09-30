@@ -34,7 +34,7 @@ export class DeviseService {
   //_apiBaseUrl ="https://www.d-defrance.fr/tp/devise-api/v1";
   //_apiBaseUrl ="http://localhost:8233/devise-api/v1"
 
-  _apiBaseUrl ="tp/devise-api/v1"; //with ng serve --proxy-config proxy.conf.json
+  _apiBaseUrl ="/tp/devise-api/v1"; //with ng serve --proxy-config proxy.conf.json
   publicBaseUrl = `${this._apiBaseUrl}/public`;
   privateBaseUrl = `${this._apiBaseUrl}/private`;
   publicOrPrivateBaseUrl : string =this.privateBaseUrl; //with security by default

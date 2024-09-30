@@ -64,6 +64,12 @@ npm install --save-dev cypress
 npx cypress open
 ou bien
 npx cypress run --spec "cypress/e2e/myTest.spec.cy.js" --browser firefox >test_report.txt
+
+==================
+
+ng build 
+ou bien
+ng build --base-href=.
            
 
  
