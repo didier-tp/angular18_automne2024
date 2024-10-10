@@ -19,6 +19,7 @@ import { ListProdComponent } from './demo/list-prod/list-prod.component';
 import { RegletteComponent } from './demo/reglette/reglette.component';
 import { SeuilComponent } from './demo/seuil/seuil.component';
 import { ZzComponent } from './demo/zz/zz.component';
+import { TogglePanelComponent } from './common/component/toggle-panel/toggle-panel.component';
 
 registerLocaleData(localeFr);
 
@@ -39,6 +40,7 @@ registerLocaleData(localeFr);
     SeuilComponent,
     ListProdComponent,
     ZzComponent,
+    TogglePanelComponent,
   ],
   imports: [
     BrowserModule,
