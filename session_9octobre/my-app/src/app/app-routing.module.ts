@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { DemoComponent } from './demo/demo.component';
+import { ConversionComponent } from './conversion/conversion.component';
 
 const routes: Routes = [
   { path: 'ngr-welcome', component: WelcomeComponent },
@@ -12,7 +13,8 @@ const routes: Routes = [
  { path: 'ngr-login', component: LoginComponent },
  { path: 'ngr-basic', component: BasicComponent },
  { path: 'ngr-reservation', component: ReservationComponent },
- { path: 'ngr-demo', component: DemoComponent }
+ { path: 'ngr-demo', component: DemoComponent },
+ { path: 'ngr-conversion', component: ConversionComponent }
 ];
 
 @NgModule({
