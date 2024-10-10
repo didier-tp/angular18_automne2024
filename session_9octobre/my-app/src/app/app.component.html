@@ -1,7 +1,6 @@
 <div class="container-fluid">
-    <app-header></app-header>
-    <p> welcome to {{title}}</p>
-
+    <app-header [titre]="title"></app-header>
+   
     <router-outlet></router-outlet>
     <!-- automatiquement remplacé par composant associé a route courante-->
 

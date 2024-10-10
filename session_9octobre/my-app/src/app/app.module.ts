@@ -14,6 +14,11 @@ import { registerLocaleData } from '@angular/common';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { DemoComponent } from './demo/demo.component';
+import { ListProdComponent } from './demo/list-prod/list-prod.component';
+import { RegletteComponent } from './demo/reglette/reglette.component';
+import { SeuilComponent } from './demo/seuil/seuil.component';
+import { ZzComponent } from './demo/zz/zz.component';
 
 registerLocaleData(localeFr);
 
@@ -28,7 +33,12 @@ registerLocaleData(localeFr);
     TvaComponent,
     WelcomeComponent,
     LoginComponent,
-    ReservationComponent
+    ReservationComponent,
+    DemoComponent, 
+    RegletteComponent,
+    SeuilComponent,
+    ListProdComponent,
+    ZzComponent,
   ],
   imports: [
     BrowserModule,
