@@ -3,6 +3,7 @@ import { Devise } from '../data/devise';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { throwError } from 'rxjs';
 
 export interface ConvertRes {
   source: string; //ex: "EUR",
@@ -35,8 +36,11 @@ export class DeviseService {
       + `?source=${codeDeviseSrc}`
       + `&target=${codeDeviseTarget}&amount=${montant}`;
     //console.log( "url = " + url);
-
-    return this._http.get<ConvertRes>(url)
+    /*
+    if(montant < 0)
+      throwError(   () => new Error("erreur montant invalide") );
+    */
+      return this._http.get<ConvertRes>(url)
       .pipe(
         map((res: ConvertRes) => res.result)
       );
