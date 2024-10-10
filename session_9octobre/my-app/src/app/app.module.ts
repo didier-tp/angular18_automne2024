@@ -20,7 +20,8 @@ import { RegletteComponent } from './demo/reglette/reglette.component';
 import { SeuilComponent } from './demo/seuil/seuil.component';
 import { ZzComponent } from './demo/zz/zz.component';
 import { TogglePanelComponent } from './common/component/toggle-panel/toggle-panel.component';
-
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {MatTabsModule} from '@angular/material/tabs';
 registerLocaleData(localeFr);
 
 
@@ -46,10 +47,12 @@ registerLocaleData(localeFr);
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTabsModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
