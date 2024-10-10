@@ -16,7 +16,8 @@ export interface ConvertRes {
 })
 export class DeviseService {
 
-  private _apiBaseUrl = "https://www.d-defrance.fr/tp/devise-api";
+  //private _apiBaseUrl = "https://www.d-defrance.fr/tp/devise-api";
+  private _apiBaseUrl = "tp/devise-api"; //via proxy.conf.json en dev/ng-serve
   
   constructor(private _http: HttpClient) { }
   
