@@ -34,9 +34,11 @@ export class ConversionComponent implements OnInit {
 
   async onConvertir() {
     try{
-     this.montantConverti = await  firstValueFrom(this._deviseService.convertir$(this.montant,
+     this.montantConverti = await  firstValueFrom(
+         this._deviseService.convertir$(this.montant,
         this.codeDeviseSource,
-        this.codeDeviseCible));
+        this.codeDeviseCible)
+      );
 
     }catch(ex){
       console.log(ex);

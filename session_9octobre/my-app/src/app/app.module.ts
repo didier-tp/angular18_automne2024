@@ -23,6 +23,7 @@ import { TogglePanelComponent } from './common/component/toggle-panel/toggle-pan
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatTabsModule} from '@angular/material/tabs';
 import { ConversionComponent } from './conversion/conversion.component';
+import { provideHttpClient } from '@angular/common/http';
 registerLocaleData(localeFr);
 
 
@@ -54,7 +55,8 @@ registerLocaleData(localeFr);
   ],
   providers: [
     provideClientHydration(),
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideHttpClient()
   ],
   bootstrap: [AppComponent]
 })
