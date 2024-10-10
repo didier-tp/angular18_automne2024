@@ -1,0 +1,7 @@
+formation   (angular, formateur: didier defrance)
+=============
+https://github.com/didier-tp/angular18_automne2024 (git clone ou bien code/download zip)
+support de cours dans sous répertoire doc : angular_avec_rappels_js_ts.pdf
+==============
+https://www.m2iformation.fr/mon-compte/particuliers/session
+session:SE24-198851 ou SE24-182820
