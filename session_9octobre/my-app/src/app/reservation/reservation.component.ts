@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Reservation } from '../common/data/reservation';
 
 @Component({
   selector: 'app-reservation',
@@ -17,12 +18,15 @@ constructor(private _formBuilder: FormBuilder) {
     lastName: ['Nom', [Validators.required,Validators.pattern('[A-Z].+')]],
     telephone: ['0605040302', [Validators.required , Validators.minLength(10)]],
     email: ['prenom.Nom@xyz.com', [Validators.required, Validators.email]],
-    dateTime: [ /*'2024-09-01T14:30' */ ((new Date()).toISOString()).substring(0,16), [Validators.required , Validators.pattern('[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}.*')]]
+    dateTime: [ /*'2024-09-01T14:30' */ ((new Date()).toISOString()).substring(0,16),
+       [Validators.required , Validators.pattern('[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}.*')]]
     });
 }
 
 onReservation(){
-  this.message="résa effectuée=" + JSON.stringify(this.resaForm.value);
+  let v = this.resaForm.value;
+  let resaObj = new Reservation(v.firstName,v.lastName,v.telephone,v.email,v.dateTime);
+  this.message="résa effectuée=" + JSON.stringify(resaObj);
 }
 
 
