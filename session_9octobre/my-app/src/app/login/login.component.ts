@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Login } from '../common/data/login';
 import { LoginService } from '../common/service/login.service';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent {
   public message :string ="";
   public connected : boolean = false;
 
-  public onLogin(){
+  public onLoginV1(){
     // this.message = "donnees saisies = " + JSON.stringify(this.login);
     this.connected = false; //avant essai
     this.loginService.postLogin$(this.login)
@@ -25,6 +26,18 @@ export class LoginComponent {
             error: (err)=>console.log(err)
           }
         )
+  }
+
+  public async onLogin(){
+    // this.message = "donnees saisies = " + JSON.stringify(this.login);
+    this.connected = false; //avant essai
+    try{
+      const loginResponse = await firstValueFrom(this.loginService.postLogin$(this.login))
+      this.message = loginResponse.message;
+      this.connected = loginResponse.status;
+    }catch(ex){
+      console.log("echec http:" + ex)
+    }
   }
 
   constructor(private loginService: LoginService) { }
