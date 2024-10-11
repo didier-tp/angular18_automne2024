@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DeviseService } from '../common/service/devise.service'
 import { Devise } from '../common/data/devise'
 import { firstValueFrom } from 'rxjs';
+import { messageFromError, messageFromEx } from '../common/util/util';
 @Component({
   selector: 'app-conversion',
   templateUrl: './conversion.component.html',
@@ -25,7 +26,7 @@ export class ConversionComponent implements OnInit {
           this.montantConverti = res;
           console.log("resultat obtenu en différé")
         },
-        error: (err) => { console.log("error:" + err) }
+        error: (err) => { console.log(messageFromError(err,"echec conversion:")) }
       });
     console.log("suite immédiate (sans attente) de onConvertir");
     //Attention : sur cette ligne , le résultat n'est à ce stade pas encore connu
@@ -41,7 +42,7 @@ export class ConversionComponent implements OnInit {
       );
 
     }catch(ex){
-      console.log(ex);
+      console.log(messageFromEx(ex,"echec conversion:"));
     }
     
   }
@@ -59,7 +60,7 @@ export class ConversionComponent implements OnInit {
     this._deviseService.getAllDevises$()
       .subscribe({
         next: (tabDev: Devise[]) => { this.initListeDevises(tabDev); },
-        error: (err) => { console.log("error:" + err) }
+        error: (err) => { console.log("error:" + err + JSON.stringify(err)) }
       });
   }
 }

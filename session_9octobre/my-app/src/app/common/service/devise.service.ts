@@ -36,10 +36,10 @@ export class DeviseService {
       + `?source=${codeDeviseSrc}`
       + `&target=${codeDeviseTarget}&amount=${montant}`;
     //console.log( "url = " + url);
-    /*
+    
     if(montant < 0)
-      throwError(   () => new Error("erreur montant invalide") );
-    */
+      throw throwError(   () => new Error("erreur montant invalide") );
+
       return this._http.get<ConvertRes>(url)
       .pipe(
         map((res: ConvertRes) => res.result)
