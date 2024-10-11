@@ -35,6 +35,7 @@ export class LoginComponent {
       const loginResponse = await firstValueFrom(this.loginService.postLogin$(this.login))
       this.message = loginResponse.message;
       this.connected = loginResponse.status;
+      sessionStorage.setItem("access_token",loginResponse.token??"");
     }catch(ex){
       console.log("echec http:" + ex)
     }
