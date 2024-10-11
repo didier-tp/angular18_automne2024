@@ -28,6 +28,11 @@ export class DeviseService {
     return this._http.get<Devise[]>(url);
   }
 
+  putDevise$(d :Devise): Observable<Devise>{
+    const url = `${this._apiBaseUrl}/private/devise?v=true`;
+    return this._http.put<Devise>(url,d /*input envoyé au serveur*/);
+  }
+
   public convertir$(montant: number,
     codeDeviseSrc: string,
     codeDeviseTarget: string
