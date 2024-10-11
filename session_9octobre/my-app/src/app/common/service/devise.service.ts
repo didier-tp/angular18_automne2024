@@ -25,7 +25,13 @@ export class DeviseService {
   public getAllDevises$(): Observable<Devise[]> {
     let url = this._apiBaseUrl + "/public/devise";
     console.log("url = " + url);
-    return this._http.get<Devise[]>(url);
+    //return this._http.get<Devise[]>(url);
+    return this._http.get<Devise[]>(url)
+        .pipe(
+          map( devises => devises.sort(
+                 (d1,d2) => d1.code.localeCompare(d2.code)
+                ))
+        )
   }
 
   putDevise$(d :Devise): Observable<Devise>{

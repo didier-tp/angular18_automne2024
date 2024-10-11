@@ -22,6 +22,7 @@ export class LoginComponent {
             next: (loginResponse) =>{ 
               this.message = loginResponse.message;
               this.connected = loginResponse.status;
+              sessionStorage.setItem("access_token",loginResponse.token??"");
              },
             error: (err)=>console.log(err)
           }
