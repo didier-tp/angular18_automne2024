@@ -16,7 +16,7 @@ git pull
 ---------
 Compléments sur angular 17+ et javascript, typescript
 ---> référentiel git "https://github.com/didier-mycontrib/angular17plus"
-     avec rappels-essenetiel-es2027 , rappels-typescript , ….
+     avec rappels-essenetiel-es2027 , rappels-typescript , …. , news-features-app (signaux, standalone , ....)
 -----------
 
 Exemple d'application angular avec plusieurs modules et lazy-loading:
