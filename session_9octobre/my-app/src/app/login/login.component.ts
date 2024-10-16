@@ -6,7 +6,7 @@ import { firstValueFrom } from 'rxjs';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrls: ['./login.component.scss' ]
 })
 export class LoginComponent {
   public login : Login = new Login();
