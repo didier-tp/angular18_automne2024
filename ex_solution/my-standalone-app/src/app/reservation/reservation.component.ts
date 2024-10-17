@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule, ValidationErrors } from '@angular/forms';
 import { Reservation } from '../common/data/reservation';
 
 @Component({
   selector: 'app-reservation',
+  standalone: true,
+  imports: [ReactiveFormsModule],
   templateUrl: './reservation.component.html',
   styleUrl: './reservation.component.scss'
 })
@@ -64,5 +66,4 @@ export class ReservationComponent {
                                         r.email , this.dateTimeFromDateAndLocalTime(r.date,r.time) ); 
     this.message="résa effectuée=" + JSON.stringify(this.reservation);
   }
-
 }
