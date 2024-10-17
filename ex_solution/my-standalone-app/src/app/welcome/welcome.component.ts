@@ -10,5 +10,5 @@ import { FormsModule } from '@angular/forms';
 })
 export class WelcomeComponent {
  //imports: [FormsModule] is required in standalone module
- x=0;
+
 }
