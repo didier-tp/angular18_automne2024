@@ -8,7 +8,8 @@ export class Login {
 export class LoginResponse {
     constructor(
         public  username : string ="",
-        public  message : string ="",
         public  status : boolean =false,
-        public  token : string | null = null ){}
+        public  message : string ="",
+        public  token : string | null = null,
+        public  scope : string | null = null, ){}
 }
