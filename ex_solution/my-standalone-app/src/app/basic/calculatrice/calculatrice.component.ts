@@ -1,6 +1,7 @@
 import { JsonPipe, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-calculatrice',
@@ -17,7 +18,7 @@ export class CalculatriceComponent {
   montrerHisto : boolean = true;
   historiqueCalculs :string[] = [];
 
-  /*
+  
   modeChoisi="simple"; //ou "sophistiquee"
 
   constructor(route : ActivatedRoute){
@@ -26,7 +27,7 @@ export class CalculatriceComponent {
       (params: Params)=>{  this.modeChoisi = params['mode'] ;}
     );
   }
-  */
+  
 
   onCalculer(op: string) {
     switch (op) {

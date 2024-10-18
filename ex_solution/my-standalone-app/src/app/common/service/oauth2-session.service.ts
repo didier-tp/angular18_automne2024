@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthConfig, OAuthErrorEvent, OAuthInfoEvent, OAuthService, OAuthSuccessEvent } from 'angular-oauth2-oidc';
 import { UserInSession } from '../data/user_in_session';
 import { Location } from '@angular/common';
-//import { SessionService } from './session.service';
+import { SessionService } from './session.service';
 
 
 @Injectable({
@@ -11,7 +11,7 @@ import { Location } from '@angular/common';
 })
 export class OAuth2SessionService {
 
-  //private _sessionService = inject(SessionService);
+  private _sessionService = inject(SessionService);
 
   private _userInSession = new UserInSession();
 
@@ -99,9 +99,9 @@ export class OAuth2SessionService {
       var claims : any = this.oauthService.getIdentityClaims();
       console.log("claims="+JSON.stringify(claims))
       if (claims) this._userInSession.username= claims.preferred_username + "("+ claims.name + ")";
-      
-	  //this._sessionService.userInSession$=this._userInSession;
-	  
+
+      this._sessionService.userInSession$=this._userInSession;
+
       /*
       //not necessary with popup and silent-refresh
       let savedData = sessionStorage.getItem("data");

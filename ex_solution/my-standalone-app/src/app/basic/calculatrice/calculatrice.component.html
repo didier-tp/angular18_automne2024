@@ -7,8 +7,10 @@
 <label>b:</label> <input type="number" name="b" required [(ngModel)]="b" /> <br/>
 <button (click)="onCalculer('+')">+</button> &nbsp;
 <button (click)="onCalculer('-')">-</button> &nbsp;
-<button (click)="onCalculer('*')">*</button> &nbsp;
-<button (click)="onCalculer('/')">/</button> <br/>
+@if(modeChoisi=="sophistiquee"){
+   <button (click)="onCalculer('*')">*</button> &nbsp;
+   <button (click)="onCalculer('/')">/</button>
+ } <br/>
 res= <span id="spanRes" [style.font-weight]="res>0?'bold':'normal'"
            [class.negatif]="res<0">{{res}}</span>
 </div>    
