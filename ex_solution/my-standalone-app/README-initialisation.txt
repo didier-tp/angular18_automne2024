@@ -60,6 +60,15 @@ npx cypress open
 ou bien
 npx cypress run --spec "cypress/e2e/myTest.spec.cy.js" --browser firefox >test_report.txt
 
+===============
+pour éviter conflit entre cypress et angular,
+il faut ajouter ceci dans tsconfig.json:
+    ,
+    "exclude": [
+      "cypress.config.ts",
+      "cypress/**/*.ts"
+    ]
+
 ==================
 
 ng build 

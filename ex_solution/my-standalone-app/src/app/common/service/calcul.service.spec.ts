@@ -11,7 +11,7 @@ describe('CalculService', () => {
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(service).toBeTruthy();  
   });
 
   it('addition(5,6) should be 11', () => {
