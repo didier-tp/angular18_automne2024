@@ -2,6 +2,7 @@ import { Component, inject , output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PreferencesService } from '../common/service/preferences.service';
 import { DatePipe, NgFor } from '@angular/common';
+import { SessionService } from '../common/service/session.service';
 
 
 @Component({
@@ -27,6 +28,17 @@ export class FooterComponent {
   listeCouleurs : string[] = [ "lightyellow", "white",
     "lightgrey" , "lightgreen" , "lightpink" , "lightblue"] ;
   
+  private _sessionService = inject(SessionService);  
+  public username="";
+  constructor(){
+    this._sessionService.userInSession$.subscribe((userInSession)=>{
+      if(userInSession.authenticated)
+        this.username=userInSession.username;
+       else
+       this.username="?";
+    });
+  }
+
 }
 
 
