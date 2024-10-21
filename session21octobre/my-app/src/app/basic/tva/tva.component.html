@@ -6,8 +6,8 @@
       <option [ngValue]="t" *ngFor="let t of listeTaux">{{t}}%</option>
     </select> <br/>
 <div *ngIf="ht>0">   
-tva=<span class="enEvidence" id="spanTva">{{tva }}</span><br/>
-ttc=<span class="enEvidence" id="spanTtc">{{ttc }}</span><br/>
+tva=<span class="enEvidence" id="spanTva">{{tva| number:'1.0-2':'fr'}}</span><br/>
+ttc=<span class="enEvidence" id="spanTtc">{{ttc | toFixed:'2' }}</span><br/>
 </div>
 <hr/>
 

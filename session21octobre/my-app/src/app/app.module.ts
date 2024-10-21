@@ -8,7 +8,14 @@ import { FooterComponent } from './footer/footer.component';
 import { BasicComponent } from './basic/basic.component';
 import { CalculatriceComponent } from './basic/calculatrice/calculatrice.component';
 import { TvaComponent } from './basic/tva/tva.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToFixedPipe } from './common/pipe/to-fixed.pipe';
+import localeFr from '@angular/common/locales/fr';
+import { registerLocaleData } from '@angular/common';
+import { LoginComponent } from './login/login.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { ReservationComponent } from './reservation/reservation.component';
+registerLocaleData(localeFr);
 
 @NgModule({
   declarations: [
@@ -17,12 +24,17 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     BasicComponent,
     CalculatriceComponent,
-    TvaComponent
+    TvaComponent,
+    ToFixedPipe,
+    LoginComponent,
+    WelcomeComponent,
+    ReservationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration()
