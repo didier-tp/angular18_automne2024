@@ -20,6 +20,12 @@ import { RegletteComponent } from './demo/reglette/reglette.component';
 import { SeuilComponent } from './demo/seuil/seuil.component';
 import { ListProdComponent } from './demo/list-prod/list-prod.component';
 import { ZzComponent } from './demo/zz/zz.component';
+import {MatTabsModule} from '@angular/material/tabs';
+
+
+import { TogglePanelComponent } from './common/component/toggle-panel/toggle-panel.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { BorderOverDirective } from './common/directive/border-over.directive';
 registerLocaleData(localeFr);
 
 @NgModule({
@@ -38,16 +44,20 @@ registerLocaleData(localeFr);
     RegletteComponent,
     SeuilComponent,
     ListProdComponent,
-    ZzComponent
+    ZzComponent,
+    TogglePanelComponent,
+    BorderOverDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTabsModule,
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
