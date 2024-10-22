@@ -26,6 +26,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { TogglePanelComponent } from './common/component/toggle-panel/toggle-panel.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { BorderOverDirective } from './common/directive/border-over.directive';
+import { ConversionComponent } from './conversion/conversion.component';
 registerLocaleData(localeFr);
 
 @NgModule({
@@ -46,7 +47,8 @@ registerLocaleData(localeFr);
     ListProdComponent,
     ZzComponent,
     TogglePanelComponent,
-    BorderOverDirective
+    BorderOverDirective,
+    ConversionComponent
   ],
   imports: [
     BrowserModule,
