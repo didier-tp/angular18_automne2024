@@ -28,6 +28,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { BorderOverDirective } from './common/directive/border-over.directive';
 import { ConversionComponent } from './conversion/conversion.component';
 import { provideHttpClient } from '@angular/common/http';
+import { DeviseComponent } from './devise/devise.component';
+import { OAuthModule } from 'angular-oauth2-oidc';
+import { OAuth2LogInOutComponent } from './oauth2-log-in-out/oauth2-log-in-out.component';
 registerLocaleData(localeFr);
 
 @NgModule({
@@ -49,7 +52,9 @@ registerLocaleData(localeFr);
     ZzComponent,
     TogglePanelComponent,
     BorderOverDirective,
-    ConversionComponent
+    ConversionComponent,
+    DeviseComponent,
+    OAuth2LogInOutComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +62,7 @@ registerLocaleData(localeFr);
     FormsModule,
     ReactiveFormsModule,
     MatTabsModule,
+    OAuthModule.forRoot()
   ],
   providers: [
     provideClientHydration(),

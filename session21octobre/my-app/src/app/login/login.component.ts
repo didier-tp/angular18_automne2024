@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 //Attention, si optimisation SSR depuis angular 17, pas de { Router } from 'express' ici !!!! (sinon erreur "process is not defined")
 //import { firstValueFrom } from 'rxjs';
 import { Login, LoginResponse } from '../common/data/login';
-//import { LoginService } from '../common/service/login.service';
-//import { messageFromError } from '../common/util/util';
+import { LoginService } from '../common/service/login.service';
+import { messageFromError } from '../common/util/util';
 //import { SessionService } from '../common/service/session.service';
 //import { UserInSession } from '../common/data/user_in_session';
 
@@ -19,12 +19,14 @@ login = new Login("user1","pwd1","user");
 message = "";
 status = false;
 
-
+constructor(private loginService :LoginService){
+  //injection de dépendance
+}
 
 onLogin(){
  //V1:
- this.message="valeurs saisies=" + JSON.stringify(this.login);
- /*
+ //this.message="valeurs saisies=" + JSON.stringify(this.login);
+ 
  //V2:
  this.loginService.postLogin$(this.login).subscribe(
    {
@@ -38,7 +40,6 @@ onLogin(){
      }
    }
  );
- */
 }
 /*
 async onLoginWithAsyncAwait(){

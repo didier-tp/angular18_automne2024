@@ -19,10 +19,10 @@ export class ConversionComponent {
   codeDeviseCible: string = "?";
   montantConverti: number = 0;
   message = "";
-/*
+
   codeToUpdate="?";
   changeToUpdate=1;
-*/
+
   listeDevises: Devise[] = []; //à choisir dans liste déroulante.
 
   constructor(private _deviseService: DeviseService) { }
@@ -58,7 +58,7 @@ export class ConversionComponent {
       this.message = <string> err;
     }
   }
-/*
+
   async onUpdate() {
     try {
       let d:Devise;
@@ -80,7 +80,7 @@ export class ConversionComponent {
       this.message = <string> JSON.stringify(err);
     }
   }
-*/
+
 
   initListeDevises(tabDevises: Devise[]) {
     this.listeDevises = tabDevises;
