@@ -15,6 +15,11 @@ import { registerLocaleData } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { DemoComponent } from './demo/demo.component';
+import { RegletteComponent } from './demo/reglette/reglette.component';
+import { SeuilComponent } from './demo/seuil/seuil.component';
+import { ListProdComponent } from './demo/list-prod/list-prod.component';
+import { ZzComponent } from './demo/zz/zz.component';
 registerLocaleData(localeFr);
 
 @NgModule({
@@ -28,7 +33,12 @@ registerLocaleData(localeFr);
     ToFixedPipe,
     LoginComponent,
     WelcomeComponent,
-    ReservationComponent
+    ReservationComponent,
+    DemoComponent,
+    RegletteComponent,
+    SeuilComponent,
+    ListProdComponent,
+    ZzComponent
   ],
   imports: [
     BrowserModule,
