@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { PreferencesService } from '../common/service/preferences.service';
 
 @Component({
   selector: 'app-header',
@@ -8,4 +9,8 @@ import { Component, Input } from '@angular/core';
 export class HeaderComponent {
    @Input() 
    titre="titre_par_defaut";
+
+   constructor(public preferencesService : PreferencesService){
+    //injection de dépendance par constructeur
+   }
 }
