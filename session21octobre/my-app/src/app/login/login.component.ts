@@ -28,6 +28,7 @@ onLogin(){
  //this.message="valeurs saisies=" + JSON.stringify(this.login);
  
  //V2:
+ sessionStorage.setItem("access_token","");
  this.loginService.postLogin$(this.login).subscribe(
    {
      next: (loginResponse: LoginResponse) => {
