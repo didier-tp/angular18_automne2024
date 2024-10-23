@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CalculService } from '../../common/service/calcul.service';
 
 @Component({
   selector: 'app-tva',
@@ -14,10 +15,19 @@ export class TvaComponent {
   ttc=0;
 
  
+  /*
   //version sans service
   onCalculerTvaTtc(){
     this.tva=this.taux/100 * this.ht;
     this.ttc = this.tva + this.ht;
+  }
+  */
+
+  //version avec service
+  //private _calculService = inject(CalculService) ou via injection par constructeur
+  onCalculerTvaTtc(){
+    this.tva=this._calculService.calculTva(this.ht,this.taux);
+    this.ttc = this._calculService.addition(this.tva , this.ht);
   }
 
 
@@ -25,7 +35,8 @@ export class TvaComponent {
   mapTauxCategorieProd= new Map<number,string[]>();
   tauxSel : number | undefined = undefined; //taux sélectionné
   listeCategoriePourTauxSel : string[] = [];
-  constructor(){
+
+  constructor(private _calculService :CalculService){
     this.mapTauxCategorieProd.set(20 , [ "services" ,"outils" , "objets"]);
     this.mapTauxCategorieProd.set(10 , [ "transports" ,"hotels" , "restaurants" , "spectacles" , "médicaments"]);
     this.mapTauxCategorieProd.set(5 , [ "aliments" ,"énergies" , "livres" ]);
