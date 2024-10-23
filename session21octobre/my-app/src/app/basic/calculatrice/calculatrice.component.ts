@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-calculatrice',
@@ -10,6 +11,19 @@ export class CalculatriceComponent {
   b = 0;
   res = 0;
 
+  montrerHisto : boolean = true;
+  historiqueCalculs :string[] = [];
+
+  
+  modeChoisi="simple"; //ou "sophistiquee"
+
+  constructor(route : ActivatedRoute){
+    route.params.subscribe(
+      //path: "calculatrice/:mode"
+      (params: Params)=>{  this.modeChoisi = params['mode'] ;}
+    );
+  }
+  
 
   onCalculer(op: string) {
     switch (op) {
@@ -25,6 +39,7 @@ export class CalculatriceComponent {
       default:
         this.res = 0;
     }
+    this.historiqueCalculs.push(`${this.a} ${op} ${this.b} = ${this.res}`)
   }
 
   //coordonnées relatives de la souris qui survole une div
@@ -40,5 +55,4 @@ export class CalculatriceComponent {
   onMouseLeave(evt: MouseEvent) {
     this.x = 0; this.y = 0;
   }
-
 }

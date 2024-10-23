@@ -32,6 +32,7 @@ import { DeviseComponent } from './devise/devise.component';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { OAuth2LogInOutComponent } from './oauth2-log-in-out/oauth2-log-in-out.component';
 import { myAuthInterceptor } from './common/interceptor/my-auth.interceptor';
+import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
 registerLocaleData(localeFr);
 
 @NgModule({
@@ -55,7 +56,8 @@ registerLocaleData(localeFr);
     BorderOverDirective,
     ConversionComponent,
     DeviseComponent,
-    OAuth2LogInOutComponent
+    OAuth2LogInOutComponent,
+    NotAuthorizedComponent
   ],
   imports: [
     BrowserModule,
