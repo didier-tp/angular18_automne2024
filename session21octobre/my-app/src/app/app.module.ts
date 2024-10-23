@@ -27,10 +27,11 @@ import { TogglePanelComponent } from './common/component/toggle-panel/toggle-pan
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { BorderOverDirective } from './common/directive/border-over.directive';
 import { ConversionComponent } from './conversion/conversion.component';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { DeviseComponent } from './devise/devise.component';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { OAuth2LogInOutComponent } from './oauth2-log-in-out/oauth2-log-in-out.component';
+import { myAuthInterceptor } from './common/interceptor/my-auth.interceptor';
 registerLocaleData(localeFr);
 
 @NgModule({
@@ -67,7 +68,7 @@ registerLocaleData(localeFr);
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
-    provideHttpClient()
+    provideHttpClient(withInterceptors([myAuthInterceptor]))
   ],
   bootstrap: [AppComponent]
 })

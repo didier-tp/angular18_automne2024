@@ -15,7 +15,7 @@ import { messageFromError } from '../common/util/util';
 })
 export class LoginComponent {
 //login = new Login();
-login = new Login("user1","pwd1","user");
+login = new Login("admin1","pwd1","user");
 message = "";
 status = false;
 
@@ -33,6 +33,7 @@ onLogin(){
      next: (loginResponse: LoginResponse) => {
        this.message=loginResponse.message;
        this.status = loginResponse.status;
+       sessionStorage.setItem("access_token",loginResponse.token??"");
      },
      error: (err) => {
        console.log("error:" + err);
