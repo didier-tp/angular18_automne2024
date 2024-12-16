@@ -27,11 +27,16 @@ onCalculerTvaEtTtc(){
 
 mapTauxCategorieProd= new Map<number,string[]>();
 tauxSel : number | undefined = undefined; //taux sélectionné
-listeCategoriePourTauxSel = [];
+listeCategoriePourTauxSel : string[] = [];
 constructor(){
-this.mapTauxCategorieProd.set(20 , [ "services" ,"outils" , "objets"]);
-this.mapTauxCategorieProd.set(10 , [ "transports" ,"hotels" , "restaurants" , "spectacles" , "médicaments"]);
-this.mapTauxCategorieProd.set(5 , [ "aliments" ,"énergies" , "livres" ]);
+  this.mapTauxCategorieProd.set(20 , [ "services" ,"outils" , "objets"]);
+  this.mapTauxCategorieProd.set(10 , [ "transports" ,"hotels" , "restaurants" , "spectacles" , "médicaments"]);
+  this.mapTauxCategorieProd.set(5 , [ "aliments" ,"énergies" , "livres" ]);
+}
+
+onSelectTaux(taux:number){
+    this.tauxSel = taux;
+    this.listeCategoriePourTauxSel = this.mapTauxCategorieProd.get(taux)??[];
 }
 
 }
