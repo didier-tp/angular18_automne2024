@@ -1,0 +1,3 @@
+// .entete { background-color: lightgrey;}
+$couleur-entete: lighten(lightgrey , 12%);
+.entete { background-color: $couleur-entete;}
