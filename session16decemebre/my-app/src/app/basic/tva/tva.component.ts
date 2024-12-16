@@ -23,4 +23,15 @@ onCalculerTvaEtTtc(){
   this.ttc = Number(this.tva) + Number(this.ht);
 }
 
+//partie faculatative du Tp:
+
+mapTauxCategorieProd= new Map<number,string[]>();
+tauxSel : number | undefined = undefined; //taux sélectionné
+listeCategoriePourTauxSel = [];
+constructor(){
+this.mapTauxCategorieProd.set(20 , [ "services" ,"outils" , "objets"]);
+this.mapTauxCategorieProd.set(10 , [ "transports" ,"hotels" , "restaurants" , "spectacles" , "médicaments"]);
+this.mapTauxCategorieProd.set(5 , [ "aliments" ,"énergies" , "livres" ]);
+}
+
 }
