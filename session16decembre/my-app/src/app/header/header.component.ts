@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +9,9 @@ import { Component, Input } from '@angular/core';
 })
 export class HeaderComponent {
 
-  @Input()
-  titre = "titre_par_defaut";
+  //@Input()
+  //titre = "titre_par_defaut";
+
+  titre = input("titre_par_defaut");  //et {{titre()}} du cote .html
 
 }

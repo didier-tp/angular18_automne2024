@@ -15,6 +15,7 @@ import { ToFixedPipe } from './common/pipe/to-fixed.pipe';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { TogglePanelComponent } from './common/component/toggle-panel/toggle-panel.component';
 registerLocaleData(localeFr);
 
 @NgModule({
@@ -28,7 +29,8 @@ registerLocaleData(localeFr);
     ToFixedPipe,
     WelcomeComponent,
     LoginComponent,
-    ReservationComponent
+    ReservationComponent,
+    TogglePanelComponent
   ],
   imports: [
     BrowserModule,
