@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input } from '@angular/core';
+import { Directive, ElementRef, HostBinding, HostListener, Input } from '@angular/core';
 
 @Directive({
   selector: '[appBorderOver]',
@@ -20,5 +20,18 @@ export class BorderOverDirective {
     console.log("this.borderColor="+this.borderColor);
     this.el.nativeElement.style.borderColor = this.borderColor || "blue";
    }
+
+   @HostBinding('style.borderColor') 
+   currentBorderColor: string ="blue";
+
+@HostListener('mouseenter')
+onMouseEnter() { this.updateCurrentBorderColor(this.borderColor || "blue"); }
+
+@HostListener('mouseleave') 
+onMouseLeave() { this.updateCurrentBorderColor(null); }
+
+private updateCurrentBorderColor(color: string | null) {
+   this.currentBorderColor = color?color:'blue' ; 
+}
 
 }
