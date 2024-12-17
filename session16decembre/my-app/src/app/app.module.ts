@@ -16,6 +16,10 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { TogglePanelComponent } from './common/component/toggle-panel/toggle-panel.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {MatTabsModule} from '@angular/material/tabs';
+import { BorderOverDirective } from './common/directive/border-over.directive';
+
 registerLocaleData(localeFr);
 
 @NgModule({
@@ -30,13 +34,16 @@ registerLocaleData(localeFr);
     WelcomeComponent,
     LoginComponent,
     ReservationComponent,
-    TogglePanelComponent
+    TogglePanelComponent,
+    BorderOverDirective
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, FormsModule , ReactiveFormsModule
+    AppRoutingModule, FormsModule , ReactiveFormsModule , MatTabsModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
