@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import localeFr from '@angular/common/locales/fr';
 import { registerLocaleData } from '@angular/common';
 import { ToFixedPipe } from './common/pipe/to-fixed.pipe';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { LoginComponent } from './login/login.component';
 registerLocaleData(localeFr);
 
 @NgModule({
@@ -22,7 +24,9 @@ registerLocaleData(localeFr);
     BasicComponent,
     CalculatriceComponent,
     TvaComponent,
-    ToFixedPipe
+    ToFixedPipe,
+    WelcomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
