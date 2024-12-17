@@ -9,8 +9,8 @@ tauxTva: <select [(ngModel)]="tauxTva" (change)="onCalculerTvaEtTtc()">
 
 <!-- version preliminaire via bouton -->
 <!-- <button (click)="onCalculerTvaEtTtc()" >calculer</button> <br/> -->
-tva={{tva}} <br/>
-ttc={{ttc}}
+tva={{tva | number:'1.0-2':'fr'}} <br/>
+ttc={{ttc | toFixed:2}}
 </div>
 <hr/>
 <ul>

@@ -9,6 +9,10 @@ import { BasicComponent } from './basic/basic.component';
 import { CalculatriceComponent } from './basic/calculatrice/calculatrice.component';
 import { TvaComponent } from './basic/tva/tva.component';
 import { FormsModule } from '@angular/forms';
+import localeFr from '@angular/common/locales/fr';
+import { registerLocaleData } from '@angular/common';
+import { ToFixedPipe } from './common/pipe/to-fixed.pipe';
+registerLocaleData(localeFr);
 
 @NgModule({
   declarations: [
@@ -17,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     BasicComponent,
     CalculatriceComponent,
-    TvaComponent
+    TvaComponent,
+    ToFixedPipe
   ],
   imports: [
     BrowserModule,
