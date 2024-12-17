@@ -1,4 +1,4 @@
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, ElementRef, Input } from '@angular/core';
 
 @Directive({
   selector: '[appBorderOver]',
@@ -6,11 +6,19 @@ import { Directive, ElementRef } from '@angular/core';
 })
 export class BorderOverDirective {
 
-  constructor(el: ElementRef) {
+  @Input("appBorderOver")
+  borderColor = "blue" ; //blue by default
+  //exemple d'application: <img src="favicon.ico" appBorderOver="red" />
+
+  constructor(private el: ElementRef) {
        el.nativeElement.style.borderColor = 'blue';
        el.nativeElement.style.borderWidth = '2px';
        el.nativeElement.style.borderStyle = 'solid';
-      
+   }
+
+   ngOnInit(){
+    console.log("this.borderColor="+this.borderColor);
+    this.el.nativeElement.style.borderColor = this.borderColor || "blue";
    }
 
 }
