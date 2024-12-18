@@ -17,7 +17,7 @@ export class ConversionComponent {
   codeDeviseCible: string = "?";
   montantConverti: number = 0;
   listeDevises: Devise[] = []; //à choisir dans liste déroulante.
-  message="";
+  message = "";
 
 
   constructor(private _deviseService: DeviseService) { }
@@ -40,16 +40,16 @@ export class ConversionComponent {
   }
 
   async onConvertir() {
-    try{
-      const res = await firstValueFrom( 
-         this._deviseService.convertir$(this.montant,
-                                        this.codeDeviseSource,
-                                        this.codeDeviseCible));
-         this.montantConverti = res;
-    }catch(ex){
+    try {
+      const res = await firstValueFrom(
+        this._deviseService.convertir$(this.montant,
+          this.codeDeviseSource,
+          this.codeDeviseCible));
+      this.montantConverti = res;
+    } catch (ex) {
       console.log("error:" + ex);
     }
-   
+
   }
 
   initListeDevises(tabDevises: Devise[]) {
@@ -65,10 +65,35 @@ export class ConversionComponent {
     this._deviseService.getAllDevises$()
       .subscribe({
         next: (tabDev: Devise[]) => { this.initListeDevises(tabDev); },
-        error: (err) => { console.log("error:" + err) ;
-          this.message = messageFromError(err,"echec récupération des devises");
+        error: (err) => {
+          console.log("error:" + err);
+          this.message = messageFromError(err, "echec récupération des devises");
         }
       });
+  }
+
+  codeToUpdate = "?";
+  changeToUpdate = 1;
+  async onUpdate() {
+    try {
+      let d: Devise;
+      let deviseTemp: Devise | undefined;
+      for (d of this.listeDevises) {
+        if (d.code == this.codeToUpdate) {
+          deviseTemp = JSON.parse(JSON.stringify(d));
+        }
+      }
+      if (deviseTemp == null)
+        this.message = "pas de devise pour ce code";
+      else {
+        deviseTemp.change = this.changeToUpdate;
+        await firstValueFrom(this._deviseService.putDevise$(deviseTemp));
+        this.message = "mise à jour ok";
+      }
+    } catch (err) {
+      console.log(err);
+      this.message = <string>JSON.stringify(err);
+    }
   }
 
 }

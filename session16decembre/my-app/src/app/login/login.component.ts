@@ -37,6 +37,8 @@ export class LoginComponent {
   manageLoginResponse(loginResponse : LoginResponse){
      this.message=loginResponse.message;
      this.ok = loginResponse.status;
+     console.log(JSON.stringify(loginResponse));
+     sessionStorage.setItem("access_token",loginResponse.token??"");
   }
 
 }

@@ -20,12 +20,13 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import {MatTabsModule} from '@angular/material/tabs';
 import { BorderOverDirective } from './common/directive/border-over.directive';
 import { ConversionComponent } from './conversion/conversion.component';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { DemoComponent } from './demo/demo.component';
 import { SeuilComponent } from './demo/seuil/seuil.component';
 import { ListProdComponent } from './demo/list-prod/list-prod.component';
 import { RegletteComponent } from './demo/reglette/reglette.component';
 import { ZzComponent } from './demo/zz/zz.component';
+import { myAuthInterceptor } from './common/interceptor/my-auth.interceptor';
 
 registerLocaleData(localeFr);
 
@@ -55,7 +56,7 @@ registerLocaleData(localeFr);
     AppRoutingModule, FormsModule , ReactiveFormsModule , MatTabsModule
   ],
   providers: [
-    provideAnimationsAsync() , provideHttpClient()
+    provideAnimationsAsync() , provideHttpClient(withInterceptors([myAuthInterceptor]))
   ],
   bootstrap: [AppComponent]
 })
