@@ -21,6 +21,11 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { BorderOverDirective } from './common/directive/border-over.directive';
 import { ConversionComponent } from './conversion/conversion.component';
 import { provideHttpClient } from '@angular/common/http';
+import { DemoComponent } from './demo/demo.component';
+import { SeuilComponent } from './demo/seuil/seuil.component';
+import { ListProdComponent } from './demo/list-prod/list-prod.component';
+import { RegletteComponent } from './demo/reglette/reglette.component';
+import { ZzComponent } from './demo/zz/zz.component';
 
 registerLocaleData(localeFr);
 
@@ -38,7 +43,12 @@ registerLocaleData(localeFr);
     ReservationComponent,
     TogglePanelComponent,
     BorderOverDirective,
-    ConversionComponent
+    ConversionComponent,
+    DemoComponent,
+    SeuilComponent, 
+    ListProdComponent,
+    ZzComponent,
+    RegletteComponent
   ],
   imports: [
     BrowserModule,

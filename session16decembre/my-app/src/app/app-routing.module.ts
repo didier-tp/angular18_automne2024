@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { ConversionComponent } from './conversion/conversion.component';
+import { DemoComponent } from './demo/demo.component';
 
 const routes: Routes = [
   { path: 'ngr-welcome', component: WelcomeComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'ngr-basic', component: BasicComponent },
   { path: 'ngr-reservation', component: ReservationComponent },
   { path: 'ngr-conversion', component: ConversionComponent } ,
+  { path: 'ngr-demo', component: DemoComponent } ,
   { path: '**', redirectTo: '/welcome', pathMatch: 'full' }
   ];
   //NB: les path peuvent éventuellement commencer par "ngr-" .
