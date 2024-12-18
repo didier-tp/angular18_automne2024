@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ValidationErrors } from '@angular/forms';
-import { Reservation } from '../common/data/reservation';
+import { Reservation } from '../common/data/reservation'; 
 
 @Component({
   selector: 'app-reservation',
