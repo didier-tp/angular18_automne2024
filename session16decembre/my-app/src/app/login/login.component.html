@@ -1,4 +1,5 @@
 <h3>login</h3>
+<p>example of good login (admin1/pwd1)</p>
 <form #formLogin="ngForm">
 
     <div class="f-form-group-wrap">
@@ -26,4 +27,4 @@
     <input type="button" value="login" (click)="onLogin()" 
            [disabled]="!formLogin.form.valid"/> <br/>
 </form>
-message: {{message}}
+message: <span [style.color]="ok?'green':'red'">{{message}}</span>

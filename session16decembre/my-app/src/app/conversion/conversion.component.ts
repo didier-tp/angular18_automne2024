@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Devise } from '../common/data/devise';
 import { DeviseService } from '../common/service/devise.service';
+import { messageFromError } from '../common/util/util';
 
 @Component({
   selector: 'app-conversion',
@@ -15,6 +16,9 @@ export class ConversionComponent {
   codeDeviseCible: string = "?";
   montantConverti: number = 0;
   listeDevises: Devise[] = []; //à choisir dans liste déroulante.
+  message="";
+
+
   constructor(private _deviseService: DeviseService) { }
   onConvertir() {
     console.log("debut de onConvertir")
@@ -45,7 +49,9 @@ export class ConversionComponent {
     this._deviseService.getAllDevises$()
       .subscribe({
         next: (tabDev: Devise[]) => { this.initListeDevises(tabDev); },
-        error: (err) => { console.log("error:" + err) }
+        error: (err) => { console.log("error:" + err) ;
+          this.message = messageFromError(err,"echec récupération des devises");
+        }
       });
   }
 
