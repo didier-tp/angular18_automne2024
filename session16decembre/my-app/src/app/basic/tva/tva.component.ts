@@ -19,7 +19,7 @@ export class TvaComponent {
   ttc /*:number*/ = 0;
 
 onCalculerTvaEtTtc(){
-  this.tva = this.ht * this.tauxTva / 100;
+  this.tva = this.ht * this.tauxTva / 100 ;
   this.ttc = Number(this.tva) + Number(this.ht);
 }
 
