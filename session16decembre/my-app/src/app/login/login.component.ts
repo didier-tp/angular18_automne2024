@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Login, LoginResponse } from '../common/data/login';
 import { LoginService } from '../common/service/login.service';
 import { messageFromError } from '../common/util/util';
+import { SessionServiceService } from '../common/service/session-service.service';
+import { User } from '../common/data/user';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,9 @@ export class LoginComponent {
   public message :string ="";
   public ok=false;
 
-  constructor(private _loginService : LoginService){
+  constructor(private _loginService : LoginService,
+              private _sessionService : SessionServiceService
+  ){
       //injection de dépendance
   }
 
@@ -37,6 +41,11 @@ export class LoginComponent {
   manageLoginResponse(loginResponse : LoginResponse){
      this.message=loginResponse.message;
      this.ok = loginResponse.status;
+     if(this.ok){
+      this._sessionService.setUser(new User(loginResponse.username,true));
+     }else{
+      this._sessionService.setUser(new User("?",false));
+     }
      console.log(JSON.stringify(loginResponse));
      sessionStorage.setItem("access_token",loginResponse.token??"");
   }
