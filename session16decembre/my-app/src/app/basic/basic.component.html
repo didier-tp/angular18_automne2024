@@ -1,5 +1,12 @@
 <p>basic works!</p>
 
+<a routerLink="/ngr-basic/calculatrice/simple" >calculatrice simple</a><br/>
+<a routerLink="/ngr-basic/calculatrice/sophistiquee" >calculatrice sophistiquee</a><br/>
+<a routerLink="/ngr-basic/tva" >tva</a><br/>
+<router-outlet></router-outlet> <!-- sera automatiquement 
+                                     remplacé par CalculatriceComponent ou TvaComponent -->
+<hr/>
+
 <app-toggle-panel title="calculatrice">
     <app-calculatrice></app-calculatrice>
 </app-toggle-panel>

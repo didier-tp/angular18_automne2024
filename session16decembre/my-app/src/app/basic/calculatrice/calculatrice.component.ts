@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 @Component({
   selector: 'app-calculatrice',
   standalone : false,
@@ -35,5 +36,14 @@ export class CalculatriceComponent {
   onMouseLeave(evt: MouseEvent) {
     this.x = 0; this.y = 0;
   }
-  constructor() { }
+
+  modeChoisi="simple"; //ou "sophistiquee"
+
+  constructor(route : ActivatedRoute) {
+    route.params.subscribe(
+        (params:Params)=> {
+                       //NB: { path: 'calculatrice/:mode', ... },
+                        this.modeChoisi = params['mode'];
+                         }) ;
+    }
 }

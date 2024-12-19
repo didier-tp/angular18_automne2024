@@ -16,8 +16,8 @@ export class SessionServiceService {
   public setUser(u : User){
     //on met à jour le user , et les versions "signal" , "BehaviorSubject"
     this._user=u;
-    this._userBS.next(u);
-    this._userSignal.set(u);
+    this._userBS.next(u);  //pour redéclencher toutes les callbacks enregistrées via .subscribe
+    this._userSignal.set(u); //pour réactualiser tous les {{...userSignal()}}
   }
 
   //plein de public get en version User , signal , BehaviorSubject

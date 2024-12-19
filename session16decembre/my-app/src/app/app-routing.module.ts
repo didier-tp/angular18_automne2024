@@ -6,12 +6,20 @@ import { WelcomeComponent } from './welcome/welcome.component';
 //import { ReservationComponent } from './reservation/reservation.component';
 import { ConversionComponent } from './conversion/conversion.component';
 import { DemoComponent } from './demo/demo.component';
+import { CalculatriceComponent } from './basic/calculatrice/calculatrice.component';
+import { TvaComponent } from './basic/tva/tva.component';
 
 const routes: Routes = [
   { path: 'ngr-welcome', component: WelcomeComponent },
   { path: '', redirectTo: '/ngr-welcome', pathMatch: 'full'},
   { path: 'ngr-login', component: LoginComponent },
-  { path: 'ngr-basic', component: BasicComponent },
+  { path: 'ngr-basic', component: BasicComponent,
+    children: [
+      { path: 'tva', component: TvaComponent },
+      { path: 'calculatrice/:mode', component: CalculatriceComponent },
+      { path: '', redirectTo: 'tva', pathMatch: 'prefix'}
+      ]
+  },
   //{ path: 'ngr-reservation', component: ReservationComponent },
   { path: 'ngr-m2', loadChildren: () => import('../m2/m2.module').then(m => m.M2Module)},
   { path: 'ngr-conversion', component: ConversionComponent } ,
