@@ -8,11 +8,14 @@ import { ConversionComponent } from './conversion/conversion.component';
 import { DemoComponent } from './demo/demo.component';
 import { CalculatriceComponent } from './basic/calculatrice/calculatrice.component';
 import { TvaComponent } from './basic/tva/tva.component';
+import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
+import { authGuard } from './common/guard/auth.guard';
 
 const routes: Routes = [
   { path: 'ngr-welcome', component: WelcomeComponent },
   { path: '', redirectTo: '/ngr-welcome', pathMatch: 'full'},
   { path: 'ngr-login', component: LoginComponent },
+  {path : 'ngr-not-authorized' , component : NotAuthorizedComponent},
   { path: 'ngr-basic', component: BasicComponent,
     children: [
       { path: 'tva', component: TvaComponent },
@@ -22,7 +25,7 @@ const routes: Routes = [
   },
   //{ path: 'ngr-reservation', component: ReservationComponent },
   { path: 'ngr-m2', loadChildren: () => import('../m2/m2.module').then(m => m.M2Module)},
-  { path: 'ngr-conversion', component: ConversionComponent } ,
+  { path: 'ngr-conversion', component: ConversionComponent , canActivate : [authGuard] } ,
   { path: 'ngr-demo', component: DemoComponent } ,
   { path: '**', redirectTo: '/welcome', pathMatch: 'full' }
   ];

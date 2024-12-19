@@ -27,6 +27,7 @@ import { ListProdComponent } from './demo/list-prod/list-prod.component';
 import { RegletteComponent } from './demo/reglette/reglette.component';
 import { ZzComponent } from './demo/zz/zz.component';
 import { myAuthInterceptor } from './common/interceptor/my-auth.interceptor';
+import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
 
 registerLocaleData(localeFr);
 
@@ -49,7 +50,8 @@ registerLocaleData(localeFr);
     SeuilComponent, 
     ListProdComponent,
     ZzComponent,
-    RegletteComponent
+    RegletteComponent,
+    NotAuthorizedComponent
   ],
   imports: [
     BrowserModule,
